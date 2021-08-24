@@ -1,0 +1,4 @@
+a springboot project with thymeleaf using postgresql database implements crud methods
+restController有restful的接口
+thymeController里有可以使用的接口，localhost:8080/getList可以获得用户列表
+项目配置了欢迎页,localhost:8080可以访问到index.html页面，进行restful访问
