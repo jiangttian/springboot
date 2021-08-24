@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <style>
+        table{border-collapse:collapse;}
+        table,th, td{border: 1px solid black;padding: 5px;text-align: center;}
+    </style>
+</head>
+<body>
+<br/>
+<br/>
+<a href="/edit">新增用户</a>
+<br/>
+<br/>
+<table>
+    <thead>
+    <th width="25%">id</th>
+    <th width="25%">username</th>
+    <th width="25%">password</th>
+    <th width="25%">操作</th>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.password}"></td>
+        <td>
+            <a th:href="@{/edit(id=${user.id})}">编辑</a> &nbsp;&nbsp;
+            <a th:href="@{/del/{id}(id=${user.id})}">删除</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.UserMapper">
+    <select id="list" resultType="User">
+        SELECT * FROM "User"
+    </select>
+    <select id="getById" resultType="User">
+        select id,username,password from "User" where id=#{id}
+    </select>
+    <insert id="addUser" parameterType="User">
+        INSERT INTO "User"(username,password) VALUES (#{username}, #{password,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateUser" parameterType="User">
+        UPDATE "User" SET
+        username= #{username,jdbcType=VARCHAR},
+        password = #{password,jdbcType=VARCHAR}
+        where id= #{id,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        DELETE  FROM "User" where id=#{id}
+    </delete>
+</mapper>
+        <!--
+
+1.namespace中需要与使用@Mapper的接口对应
+2.UserMapper.xml文件名称必须与使用@Mapper的接口一致
+3.标签中的id必须与@Mapper的接口中的方法名一致，且参数一致
+
+        -->

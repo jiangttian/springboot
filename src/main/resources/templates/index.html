@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test restful </title>
+</head>
+<body>
+<form action="/user/20" method="get">
+    <input value="REST-GET 获取用户id 20" type="submit"/>
+</form>
+
+<form action="/user/list" method="get">
+    <input value="REST-GET 获取用户列表" type="submit"/>
+</form>
+
+<form action="/user/20" method="post">
+    <input name="_method" type="hidden" value="DELETE"/>
+    <input value="REST-DELETE 提交20" type="submit"/>
+</form>
+
+<form action="/user?id=17&username=h5put&password=man" method="post">
+    <input name="_method" type="hidden" value="PUT"/>
+    <input value="REST-PUT 修改id 17" type="submit"/>
+</form>
+<hr/>
+REST-POST 提交
+<form action="/user" method="post">
+    username： <input name="username" value="h5"/> <br/>
+    password： <input name="password" value="12345"/> <br/>
+    <input value="REST-POST 添加新用户" type="submit" />
+</form>
+</body>
+</html>
